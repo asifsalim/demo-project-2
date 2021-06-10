@@ -16,10 +16,14 @@
     }
 
     @if $breakpoint == Tablet {
-        @media (max-width:700px) { @content };
+        @media (max-width:780px) { @content };
     }
 
-    @if $breakpoint == Mobile {
+    @if $breakpoint == Mobile-Large {
         @media (max-width:560px) { @content };
+    }
+
+    @if $breakpoint == Mobile-Small {
+        @media (max-width:360px) { @content };
     }
 }

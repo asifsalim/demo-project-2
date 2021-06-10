@@ -1,97 +1,152 @@
+
+// Container Part
 .container{
+    width: 90rem;
     height: 50rem;
-    width: 100rem;
+
+    // flex to group the cards
     display: flex;
+
     border-radius: 1rem;
     overflow: hidden;
+    // Center the container
+    @include absCenter;
 
+    @include response(Mobile-Large){
+        // flex direction change row to colume for mobile view
+        flex-direction: column;
 
-    @include response (Large-screen){
-        @include absCenter;
-    }
+        width: 40rem;
 
-    @include response(Laptop){
-       width: 70rem;
-       @include absCenter;
-    }
-
-    @include response(Mobile){
-        // width: 50rem;
-
-    }
-
-
-
-    & > * {
-        width: 33.33%;
+        //auto height to contain full data
         height: auto;
+
+    }
+
+    @include response (Mobile-Small){
+
+        width: 100%;
+        text-align: center;
+        border-radius: 0;
+    }
+    & > * {
+
+        //display flex to set 3 cards contain items have equally space vertically
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        flex: 1 1 100%;
-
-        @include response(Tablet){
-            width: 100%;
-        }
-
-
+        justify-content: space-evenly;
 
     }
 
-    &__box1{
-
-
-        @include response(Laptop){
-            display: flex;
-            justify-content: space-around;
-        }
-
+    &__top{
+        //top part padding
+        padding-top: 3rem;
 
         & > * {
-            margin:3rem 5rem 1rem 5rem;
+            //top part items padding between them
+            padding: 1.5rem 0;
+        }
+    }
 
-            @include response(Laptop){
-                margin: 3rem 3rem 0 3rem;
+    &__bottom{
+        //bottom part of a card padding
+        padding-bottom: 3rem;
+    }
 
-            }
+    &__box-1{
+        background-color: $color-orange;
+
+        & > * {
+            margin: 0 4rem;
         }
 
+
     }
-    &__icon{
-        margin-top: 3rem;
+
+    &__box-2{
+        background-color: $color-light-cyan;
+
+        & > * {
+            margin: 0 4rem;
+        }
     }
+
+    &__box-3{
+        background-color: $color-dark-cyan;
+
+        & > * {
+            margin: 0 4rem;
+        }
+    }
+
     &__header{
+        font-family: 'Big Shoulders Display',sans-serif;
         color: $color-header;
-        font-size: 5rem;
-        font-weight: 700;
-        font-family: 'Big Shoulders Display', cursive;
+        font-size: 3rem;
+        letter-spacing: 2px;
         text-transform: uppercase;
+
     }
 
     &__paragraph{
-         font-family:'Lexend Deca', sans-serif;
-         color: $color-font-paragraph;
-         font-size: 1.4rem;
-         line-height: 1.5;
-
+        font-family: 'Lexend Deca',sans-serif;
+        font-weight: 400;
+        font-size: 1.4rem;
+        color: $color-font-paragraph;
+        line-height: 1.5;
     }
 
-    &__button{
+
+    //customaize all button at once
+    &__button-1,
+    &__button-2,
+    &__button-3{
         border: none;
-        font-size: 1.2rem;
-        font-family:'Lexend Deca', sans-serif;
-        font-weight: 300;
-        letter-spacing: 2px;
+        width: auto;
+        font-size: 1.4rem;
+        font-family: 'Lexend Deca',sans-serif;
+        letter-spacing: 1.7px;
+        border: 2px solid $color-font-paragraph;
         background-color: transparent;
         color: $color-font-paragraph;
-        border: 2px solid $color-font-paragraph;
+        padding: 1rem 2rem;
         border-radius: 100px;
-        width: 15rem;
         cursor: pointer;
-        margin-top: 8rem;
-        margin-bottom: 2rem;
+
 
 
     }
+
+    //customaize button when screen is small
+    &__button-1{
+
+
+            @include response (Mobile-Large){
+                background-color: $color-header;
+                color: $color-orange;
+            }
+
+    }
+
+    &__button-2{
+
+
+        @include response (Mobile-Large){
+            background-color: $color-header;
+            color: $color-light-cyan;
+        }
+
+}
+
+&__button-3{
+
+
+    @include response (Mobile-Large){
+        background-color: $color-header;
+        color: $color-dark-cyan;
+    }
+
+}
+
 
 }
